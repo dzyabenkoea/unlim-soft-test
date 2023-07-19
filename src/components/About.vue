@@ -23,7 +23,8 @@
         <span class="font-semibold">Ожидаемая ЗП:</span> 50-60 тыс. руб.<br>
         <br>
         На текущем месте работы занимаюсь разработкой виджетов для amoCRM (встраиваемые SPA).<br>
-        <span class="font-semibold">Стэк: </span>Vue.js, Pinia (обновленный Vuex), Twig.js, TypeScript, Tailwind CSS, SCSS/SASS.<br>
+        <span class="font-semibold">Стэк: </span>Vue.js, Pinia (обновленный Vuex), Twig.js, TypeScript, Tailwind CSS,
+        SCSS/SASS.<br>
         <span class="font-semibold">Обязанности:</span><br>
         верстка по макетам Figma;<br>
         интеграция с бэкендом через REST API;<br>
@@ -32,12 +33,22 @@
         Для сборки проектов использовал Webpack и Vite.<br>
         Есть опыт командной разработки в Gitlab, и навыки работы с git<br>
         <br>
-        Пример разработанного SPA для магазина виджетов: <a class="underline" target="_blank" href="https://widgets.makeroi.ru/">https://widgets.makeroi.ru/</a><br>
-        Исходники: <a class="underline" target="_blank" href="https://github.com/dzyabenkoea/makeroi-widget-page">https://github.com/dzyabenkoea/makeroi-widget-page</a></p><br>
+        Пример разработанного SPA для магазина виджетов: <a class="underline" target="_blank"
+                                                            href="https://widgets.makeroi.ru/">https://widgets.makeroi.ru/</a><br>
+        Исходники: <a class="underline" target="_blank" href="https://github.com/dzyabenkoea/makeroi-widget-page">https://github.com/dzyabenkoea/makeroi-widget-page</a>
+      </p><br>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 
+</script>
+<script lang="ts">
+/**
+ * Страница "Обо мне"
+ */
+export default {
+  name: "About.vue"
+}
 </script>

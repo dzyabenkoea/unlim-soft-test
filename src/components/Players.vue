@@ -55,8 +55,7 @@
 <script lang="ts" setup>
 
 import {groups, players} from '../data'
-import {computed, ref, watch} from "vue";
-import {BarsArrowDownIcon, BarsArrowUpIcon} from "@heroicons/vue/24/outline";
+import {computed, ref} from "vue";
 import SortControl from "./SortControl.vue";
 
 const modifiedPlayers = preprocessPlayers(structuredClone(players))
@@ -93,10 +92,6 @@ interface Player {
   surname: string,
   birthday: string,
   fio: string
-}
-
-interface GroupData {
-  group_id: number
 }
 
 interface Group {
@@ -199,6 +194,14 @@ function onSortChange(sortKey: string) {
   sortColumn.value = sortKey
 }
 
+</script>
+<script lang="ts">
+/**
+ * Компонент для отображения страницы с игроками
+ */
+export default {
+  name: "Players.vue"
+}
 </script>
 
 <style scoped>

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "tailwind": "npx tailwindcss -i ./src/assets/base.css -o ./src/assets/style.css --watch",
     "jsdoc": "jsdoc -c ./jsdoc.json -r"

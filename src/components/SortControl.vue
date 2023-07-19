@@ -8,15 +8,18 @@
 <script setup lang="ts">
 import {BarsArrowDownIcon, BarsArrowUpIcon} from "@heroicons/vue/24/outline";
 
-/**
- * @vue-prop {Number} initialCounter - Initial counter's value
- * @vue-prop {Number} [step=1] - Step
- * @vue-data {Number} counter - Current counter's value
- * @vue-computed {String} message
- * @vue-event {Number} increment - Emit counter's value after increment
- * @vue-event {Number} decrement - Emit counter's value after decrement
- */
 const props = defineProps<{ isAscending: boolean }>()
+</script>
+<script lang="ts">
+import {BarsArrowDownIcon, BarsArrowUpIcon} from "@heroicons/vue/24/outline/index.js";
+
+/**
+ * Компонент для выбора направления сортировки
+ * @vue-prop {Boolean} - Признак сортировки по возрастанию
+ */
+export default {
+  name: "SortControl.vue",
+}
 </script>
 
 <style scoped>
