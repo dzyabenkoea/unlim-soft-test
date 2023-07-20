@@ -20,7 +20,7 @@
       <h2 class="mt-4 text-lg font-semibold">Сопроводительное письмо:</h2>
       <p class="mt-2">
         <span class="font-semibold">Опыт работы фронтенд разработчиком:</span> 7 месяцев.<br>
-        <span class="font-semibold">Ожидаемая ЗП:</span> 50-60 тыс. руб.<br>
+        <span class="font-semibold">Ожидаемая ЗП:</span> 50-70 тыс. руб.<br>
         <br>
         На текущем месте работы занимаюсь разработкой виджетов для amoCRM (встраиваемые SPA).<br>
         <span class="font-semibold">Стэк: </span>Vue.js, Pinia (обновленный Vuex), Twig.js, TypeScript, Tailwind CSS,
