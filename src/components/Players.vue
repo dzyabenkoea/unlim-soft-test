@@ -59,7 +59,6 @@ watch(playerList, () => {
 
 const _groupedPlayers: Group[] = groups.map(group => ({group_id: group.group_id, players: []}))
 const groupedPlayers = ref<Group[]>(_groupedPlayers)
-const showConfirmLeave = ref(false)
 
 /**
  * Выполняет предобработку "сырых" игроков
