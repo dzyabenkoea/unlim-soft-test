@@ -1,17 +1,16 @@
-<script setup lang="js">
+<script setup lang="ts">
 import {useRoute} from "vue-router";
 
 const router = useRoute()
 
 </script>
-<script>
-import {defineComponent} from "vue";
+<script lang="ts">
 /**
  * Корневой компонент приложения
  */
-export default defineComponent({
+export default {
   name:"App.vue"
-})
+}
 </script>
 
 <template>

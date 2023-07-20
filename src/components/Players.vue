@@ -1,35 +1,7 @@
 <template>
   <div class="flex gap-4">
     <div class="shrink-0 grow-0">
-      <table class="min-w-[20rem]">
-        <thead>
-        <tr class="border-b">
-          <th class="cursor-pointer">№</th>
-          <th class="cursor-pointer flex justify-center" @click="onSortChange('fio')">
-            <div class="flex gap-1 items-end">
-              ФИО
-              <sort-control v-show="sortColumn==='fio'" :is-ascending="sortDirectionAsc"/>
-            </div>
-          </th>
-          <th class="cursor-pointer" @click="onSortChange('birthday')">
-            <div class="flex gap-1 items-end">
-              Дата рождения
-              <sort-control v-show="sortColumn==='birthday'" :is-ascending="sortDirectionAsc"/>
-            </div>
-          </th>
-        </tr>
-        </thead>
-        <tbody class="divide-y min-h-[10rem] max-h-[20rem] overflow-auto">
-        <tr v-if="!playerList.length">
-          <td class="text-center text-gray-400" colspan="3">Нет игроков</td>
-        </tr>
-        <tr class="divide-x hover:bg-gray-50" v-for="(player, index) in sortedPlayerList" :key="player.id">
-          <td class="px-2 py-1">{{ index + 1 }}</td>
-          <td class="px-2 py-1 cursor-pointer select-none" @dblclick="addPlayer(player)">{{ player.fio }}</td>
-          <td class="px-2 py-1">{{ player.birthday }}</td>
-        </tr>
-        </tbody>
-      </table>
+      <players-table :model-value="playerList" class="min-w-[20rem]" @player-selected="(player) => addPlayer(player)"/>
     </div>
     <div class="flex flex-col gap-2 grow">
       <div class="flex gap-4 w-full">
@@ -57,21 +29,10 @@
 import {groups, players} from '../data'
 import {computed, ref} from "vue";
 import SortControl from "./SortControl.vue";
+import PlayersTable from "./PlayersTable.vue";
 
 const modifiedPlayers = preprocessPlayers(structuredClone(players))
 const playerList = ref(modifiedPlayers)
-
-const sortedPlayerList = computed(() => {
-  if (!sortColumn.value)
-    return playerList.value
-
-  const sorted = playerList.value.sort((a, b) => {
-    const aValue: string = a[sortColumn.value]
-    const bValue: string = b[sortColumn.value]
-    return sortDirectionAsc.value ? aValue.localeCompare(bValue) : -aValue.localeCompare(bValue)
-  })
-  return sorted
-})
 
 const _groupedPlayers: Group[] = groups.map(group => ({group_id: group.group_id, players: []}))
 const groupedPlayers = ref<Group[]>(_groupedPlayers)
@@ -79,14 +40,14 @@ const groupedPlayers = ref<Group[]>(_groupedPlayers)
 const sortColumn = ref('fio')
 const sortDirectionAsc = ref(true)
 
-interface PlayerData {
+export interface PlayerData {
   id: number,
   name: string,
   surname: string,
   birthday: string,
 }
 
-interface Player {
+export interface Player {
   id: number,
   name: string,
   surname: string,
@@ -94,7 +55,7 @@ interface Player {
   fio: string
 }
 
-interface Group {
+export interface Group {
   group_id: number,
   players: Player[]
 }
@@ -180,18 +141,6 @@ function prepareForSaving(groups: Group[]): PlayerGroupRecord[] {
 function saveGroups() {
   const preparedValue = prepareForSaving(groupedPlayers.value)
   console.log(preparedValue)
-}
-
-/**
- * Обработчик нажатия на заголовок колонки таблицы с игроками
- *
- * @param {string} sortKey - ключ сортировки игроков в таблице
- */
-function onSortChange(sortKey: string) {
-  // Не менять направление если меняем колонку
-  if (sortKey === sortColumn.value)
-    sortDirectionAsc.value = !sortDirectionAsc.value
-  sortColumn.value = sortKey
 }
 
 </script>

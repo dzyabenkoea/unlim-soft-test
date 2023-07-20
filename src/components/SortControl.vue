@@ -11,8 +11,6 @@ import {BarsArrowDownIcon, BarsArrowUpIcon} from "@heroicons/vue/24/outline";
 const props = defineProps<{ isAscending: boolean }>()
 </script>
 <script lang="ts">
-import {BarsArrowDownIcon, BarsArrowUpIcon} from "@heroicons/vue/24/outline/index.js";
-
 /**
  * Компонент для выбора направления сортировки
  * @vue-prop {Boolean} - Признак сортировки по возрастанию
