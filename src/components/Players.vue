@@ -6,15 +6,7 @@
     <div class="flex flex-col gap-2 grow">
       <div class="flex gap-4 w-full">
         <div v-for="group in groupedPlayers" class="grow">
-          <h2 class="font-semibold">Группа {{ group.group_id }}</h2>
-          <div class="mt-2 min-h-[20rem] min-w-[10rem] bg-gray-100 rounded-md border overflow-auto shadow-inner">
-            <ul class="divide-y shadow">
-              <li class="px-3 py-1 cursor-pointer select-none bg-white" v-for="player in group.players"
-                  @dblclick="removePlayer(player, group)">
-                {{ player.fio }}
-              </li>
-            </ul>
-          </div>
+          <players-group :model-value="group" @player-remove="player => removePlayer(player, group)"/>
         </div>
       </div>
       <button class="px-6 py-2 bg-blue-800 hover:bg-blue-900 rounded-md text-white self-end" @click="saveGroups()">
@@ -30,6 +22,7 @@ import {groups, players} from '../data'
 import {computed, ref} from "vue";
 import SortControl from "./SortControl.vue";
 import PlayersTable from "./PlayersTable.vue";
+import PlayersGroup from "./PlayersGroup.vue";
 
 const modifiedPlayers = preprocessPlayers(structuredClone(players))
 const playerList = ref(modifiedPlayers)

@@ -13,7 +13,7 @@ const props = defineProps<{ isAscending: boolean }>()
 <script lang="ts">
 /**
  * Компонент для выбора направления сортировки
- * @vue-prop {Boolean} - Признак сортировки по возрастанию
+ * @vue-prop {Boolean} isAscending - Признак сортировки по возрастанию
  */
 export default {
   name: "SortControl.vue",
