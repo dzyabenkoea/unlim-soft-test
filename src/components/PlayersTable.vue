@@ -35,7 +35,7 @@
 <script lang="ts" setup>
 import SortControl from "./SortControl.vue";
 import {computed, ref} from "vue";
-import {Player} from "./Players.vue";
+import {Player} from "../types";
 
 const sortColumn = ref('fio')
 const sortDirectionAsc = ref(true)

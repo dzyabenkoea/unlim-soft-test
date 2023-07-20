@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-import {Group, Player} from "./Players.vue";
+import {Group, Player} from "../types";
 
 interface Emits {
   (e:'playerRemove', value: Player)

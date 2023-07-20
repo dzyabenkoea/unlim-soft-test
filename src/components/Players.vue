@@ -19,44 +19,16 @@
 <script lang="ts" setup>
 
 import {groups, players} from '../data'
-import {computed, ref} from "vue";
-import SortControl from "./SortControl.vue";
+import {ref} from "vue";
 import PlayersTable from "./PlayersTable.vue";
 import PlayersGroup from "./PlayersGroup.vue";
+import {Group, Player, PlayerData, PlayerGroupRecord} from "../types";
 
 const modifiedPlayers = preprocessPlayers(structuredClone(players))
 const playerList = ref(modifiedPlayers)
 
 const _groupedPlayers: Group[] = groups.map(group => ({group_id: group.group_id, players: []}))
 const groupedPlayers = ref<Group[]>(_groupedPlayers)
-
-const sortColumn = ref('fio')
-const sortDirectionAsc = ref(true)
-
-export interface PlayerData {
-  id: number,
-  name: string,
-  surname: string,
-  birthday: string,
-}
-
-export interface Player {
-  id: number,
-  name: string,
-  surname: string,
-  birthday: string,
-  fio: string
-}
-
-export interface Group {
-  group_id: number,
-  players: Player[]
-}
-
-interface PlayerGroupRecord {
-  player_id: number,
-  group_id: number
-}
 
 /**
  * Выполняет предобработку "сырых" игроков
