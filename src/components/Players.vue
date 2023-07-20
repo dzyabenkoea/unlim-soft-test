@@ -1,7 +1,7 @@
 <template>
   <div class="flex gap-4">
     <div class="shrink-0 grow-0">
-      <players-table :model-value="playerList" class="min-w-[20rem]" @player-selected="(player) => addPlayer(player)"/>
+      <players-table :model-value="playerList" class="min-w-[20rem]" @player-selected="player => addPlayer(player)"/>
     </div>
     <div class="flex flex-col gap-2 grow">
       <div class="flex gap-4 w-full">
