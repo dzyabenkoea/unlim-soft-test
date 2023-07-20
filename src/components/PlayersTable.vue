@@ -42,7 +42,7 @@ const sortDirectionAsc = ref(true)
 
 interface Emits {
   (e: 'update:modelValue', value: Player[]),
-  (e: 'playerSelected', value: Player)
+  (e: 'player-selected', value: Player)
 }
 
 const props = defineProps<{ modelValue: Player[] }>()
