@@ -7,7 +7,7 @@ import Players from "./components/Players.vue";
 
 const app = createApp(App)
 const routes = [
-    {path: '/about', component: About},
+    {path: '/', component: About},
     {path: '/players', component: Players},
 ]
 app.use(createRouter({history: createWebHistory('/'), routes}))
