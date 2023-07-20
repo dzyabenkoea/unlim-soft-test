@@ -9,7 +9,10 @@
           <players-group :model-value="group" @player-remove="player => removePlayer(player, group)"/>
         </div>
       </div>
-      <button class="px-6 py-2 bg-blue-800 hover:bg-blue-900 rounded-md text-white self-end" @click="saveGroups()">
+      <button class="px-6 py-2 rounded-md self-end"
+              :class="{'bg-blue-800 hover:bg-blue-900 text-white':allowSave, 'bg-gray-200 text-gray-800': !allowSave}"
+              @click="saveGroups()"
+              :disabled="!allowSave">
         Сохранить
       </button>
     </div>
@@ -19,13 +22,15 @@
 <script lang="ts" setup>
 
 import {groups, players} from '../data'
-import {ref} from "vue";
+import {computed, ref} from "vue";
 import PlayersTable from "./PlayersTable.vue";
 import PlayersGroup from "./PlayersGroup.vue";
 import {Group, Player, PlayerData, PlayerGroupRecord} from "../types";
 
 const modifiedPlayers = preprocessPlayers(structuredClone(players))
 const playerList = ref(modifiedPlayers)
+
+const allowSave = computed(() => playerList.value.length === 0)
 
 const _groupedPlayers: Group[] = groups.map(group => ({group_id: group.group_id, players: []}))
 const groupedPlayers = ref<Group[]>(_groupedPlayers)
